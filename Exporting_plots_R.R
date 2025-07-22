@@ -169,7 +169,7 @@ figure_2 <- arrangeGrob(gcms_hm,
 figure_two <- ggpubr::as_ggplot(figure_2) +
   draw_plot_label(label = LETTERS[1:2],
                   x = c(0, 0.5),
-                  y = c(.99, .99))
+                  y = c(.91, .99))
 # Exporting (*.pdf) file
 ggsave(filename = "../Result/notame_results/Figuras/figure_2.pdf", plot = figure_two,
       width = 175, height = 75, units = "mm", dpi = 300, scale = 2.5)
@@ -351,9 +351,9 @@ figure_2p <- arrangeGrob(gcms_hm_p,
                         layout_matrix = rbind(c(1, 2)))
 # Adding label to the figures
 figure_twop <- ggpubr::as_ggplot(figure_2p) +
-  draw_plot_label(label = LETTERS[1:2],
+  draw_plot_label(label = LETTERS[3:4],
                   x = c(0, 0.5),
-                  y = c(.99, .99))
+                  y = c(.91, .99))
 # Exporting (*.pdf) file
 ggsave(filename = "../Result/notame_results/Figuras/figure_2p.pdf", plot = figure_twop,
        width = 175, height = 75, units = "mm", dpi = 300, scale = 2.5)
@@ -395,9 +395,9 @@ figure_union_2 <- arrangeGrob(figure_two,
                                                     c(2, 2)))
 # Adding label to the figures
 figure_uniontwo <- ggpubr::as_ggplot(figure_union_2) +
-  draw_plot_label(label = c("[M-H]-", "[M+H]+"),
-                  x = c(-0.001, 0),
-                  y = c(0.997, 0.497))
+  draw_plot_label(label = c("[M-H]-", "[M+H]+", "[M-H]-", "[M+H]+"),
+                  x = c(-0.001, 0, 0.5199, 0.5199),
+                  y = c(0.955, 0.455, 0.997, 0.497))
 # Exporting (*.pdf) file
 ggsave(filename = "../Result/notame_results/Figuras/figure_union_2.pdf", plot = figure_uniontwo,
        width = 175, height = 150, units = "mm", dpi = 300, scale = 2.5)

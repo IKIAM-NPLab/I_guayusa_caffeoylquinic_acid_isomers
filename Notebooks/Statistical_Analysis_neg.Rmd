@@ -1806,18 +1806,18 @@ lgd1 <- Legend(col_fun = mycol,
                title = "glog abundance",
                direction = "horizontal" )
 # Factor levels legend
-lgd2 <- Legend(labels = c("Light (Pos)",
-                          "Shade (Neg)"),
+lgd2 <- Legend(labels = c("Light",
+                          "Shade"),
                legend_gp = gpar(fill = cols_light),
                title = "Light factor", ncol = 1)
-lgd3 <- Legend(labels = c("Early (0)",
-                          "Medium (1)",
-                          "Late (2)"),
+lgd3 <- Legend(labels = c("Early",
+                          "Medium",
+                          "Late"),
                legend_gp = gpar(fill = cols_age),
                title = "Age factor", ncol = 1)
-lgd4 <- Legend(labels = c("Alto Pano (B)",
-                          "Alto Tena (C)",
-                          "Talag (A)"),
+lgd4 <- Legend(labels = c("Alto Pano",
+                          "Alto Tena",
+                          "Talag"),
                legend_gp = gpar(fill = cols_location),
                title = "Location factor", ncol = 1)
 # Metabolite class Legend

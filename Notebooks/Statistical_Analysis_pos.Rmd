@@ -1796,7 +1796,55 @@ hm_plot_p <- Heatmap(hm_height,
                    show_heatmap_legend = FALSE,
                    row_km = 1, column_km = 1,
                    row_title = c("a"))
-hm_plot_p
+
+library(ComplexHeatmap)
+library(grid)
+
+hm_plot_p <- Heatmap(
+  hm_height,
+  col = mycol,
+  border_gp = grid::gpar(col = "black", lty = 0.05),
+  rect_gp   = grid::gpar(col = "black", lwd = 0.75),
+  clustering_distance_columns = "euclidean",
+  clustering_method_columns   = "complete",
+  top_annotation    = top_info_ann,
+  right_annotation  = hm_row_ann,
+  row_names_max_width = unit(10, "cm"),
+  show_heatmap_legend = FALSE,
+  
+  ## <- estas dos líneas son la clave
+  cluster_rows   = FALSE,    # desactiva el clustering de filas
+  show_row_dend  = FALSE     # oculta el dendrograma lateral
+)
+
+library(ComplexHeatmap)
+library(grid)
+
+hm_plot_p <- Heatmap(
+  hm_height,
+  col = mycol,
+  border_gp = gpar(col = "black", lty = 0.05),
+  rect_gp   = gpar(col = "black", lwd = 0.75),
+
+  # clustering de columnas activado con línea de corte y etiquetas
+  clustering_distance_columns = "euclidean",
+  clustering_method_columns   = "complete",
+  show_column_dend    = TRUE,
+  column_km           = 2,
+  column_title        = c("2","1"),        # etiquetas que quieres ver
+  column_title_gp     = gpar(fontsize = 12),
+
+  # mantenemos tus anotaciones y ocultamos dendrograma filas
+  top_annotation    = top_info_ann,
+  right_annotation  = hm_row_ann,
+  row_names_max_width = unit(10, "cm"),
+  show_heatmap_legend = FALSE,
+  cluster_rows      = FALSE,
+  show_row_dend     = FALSE
+)
+
+draw(hm_plot_p)
+
 ```
 
 Adding legends to heatmap.
@@ -1807,18 +1855,18 @@ lgd1 <- Legend(col_fun = mycol,
                title = "glog abundance",
                direction = "horizontal" )
 # Factor levels legend
-lgd2 <- Legend(labels = c("Light (Pos)",
-                          "Shade (Neg)"),
+lgd2 <- Legend(labels = c("Light",
+                          "Shade"),
                legend_gp = gpar(fill = cols_light),
                title = "Light factor", ncol = 1)
-lgd3 <- Legend(labels = c("Early (0)",
-                          "Medium (1)",
-                          "Late (2)"),
+lgd3 <- Legend(labels = c("Early",
+                          "Medium",
+                          "Late"),
                legend_gp = gpar(fill = cols_age),
                title = "Age factor", ncol = 1)
-lgd4 <- Legend(labels = c("Alto Pano (B)",
-                          "Alto Tena (C)",
-                          "Talag (A)"),
+lgd4 <- Legend(labels = c("Alto Pano",
+                          "Alto Tena",
+                          "Talag"),
                legend_gp = gpar(fill = cols_location),
                title = "Location factor", ncol = 1)
 # Metabolite class Legend

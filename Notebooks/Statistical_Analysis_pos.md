@@ -2361,9 +2361,9 @@ hm_plot_p <- Heatmap(
   row_names_max_width = unit(10, "cm"),
   show_heatmap_legend = FALSE,
   
-  ## <- estas dos líneas son la clave
-  cluster_rows   = FALSE,    # desactiva el clustering de filas
-  show_row_dend  = FALSE     # oculta el dendrograma lateral
+  
+  cluster_rows   = FALSE,    
+  show_row_dend  = FALSE     
 )
 
 library(ComplexHeatmap)
@@ -2375,15 +2375,15 @@ hm_plot_p <- Heatmap(
   border_gp = gpar(col = "black", lty = 0.05),
   rect_gp   = gpar(col = "black", lwd = 0.75),
 
-  # clustering de columnas activado con línea de corte y etiquetas
+  
   clustering_distance_columns = "euclidean",
   clustering_method_columns   = "complete",
   show_column_dend    = TRUE,
   column_km           = 2,
-  column_title        = c("2","1"),        # etiquetas que quieres ver
+  column_title        = c("2","1"),        
   column_title_gp     = gpar(fontsize = 12),
 
-  # mantenemos tus anotaciones y ocultamos dendrograma filas
+  
   top_annotation    = top_info_ann,
   right_annotation  = hm_row_ann,
   row_names_max_width = unit(10, "cm"),
